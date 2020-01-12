@@ -10,7 +10,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    //var username = String()
     var oneActive = false
     var whenTapped = Date()
     var indexPRow = IndexPath()
