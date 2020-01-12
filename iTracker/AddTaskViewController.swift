@@ -13,7 +13,7 @@ class AddTaskViewController: UIViewController{
     let colorArray:[UIColor] = [#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),#colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1),#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1),#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1),#colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1),#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1),#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1),#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)]
     let imageArray:[UIImage] = [UIImage.init(systemName: "doc.fill")!,UIImage.init(systemName: "keyboard")!,UIImage.init(systemName: "book.fill")!,UIImage.init(systemName: "pencil")!,UIImage.init(systemName: "person.fill")!,UIImage.init(systemName: "zzz")!,UIImage.init(systemName: "play.fill")!,UIImage.init(systemName: "music.mic")!,UIImage.init(systemName: "heart.fill")!,UIImage.init(systemName: "camera.fill")!]
     var cellType = 0
-    var task = Task(name: "", image: UIImage.init(systemName: "square.fill")!, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), description: "", isActivated: false, time: 0)
+    var task = Task()
     
     @IBOutlet weak var colView: UICollectionView!
     @IBOutlet weak var tabView: UITableView!

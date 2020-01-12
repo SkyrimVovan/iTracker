@@ -11,10 +11,10 @@ import UIKit
 
 struct Task {
     var user: User?
-    var name: String
-    var image: UIImage
-    var color: UIColor
-    var description: String
-    var isActivated: Bool
-    var time: Int
+    var name = String()
+    var image = UIImage.init(systemName: "square.fill")!
+    var color = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    var description = String()
+    var isActivated = false
+    var time = 0
 }
