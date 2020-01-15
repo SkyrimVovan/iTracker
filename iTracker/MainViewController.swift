@@ -18,14 +18,11 @@ class MainViewController: UIViewController {
     var user: User?
     var timer: Timer?
     
-    //    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var currentDateLabel: UILabel!
-    @IBOutlet weak var addTaskButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func addTaskPressed(_ sender: UIButton) {
+    @IBAction func addTaskPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "toAddTaskSegue", sender: nil)
-        
     }
     
     @IBAction func unwindToMainScreen(segue:UIStoryboardSegue){
@@ -53,7 +50,6 @@ class MainViewController: UIViewController {
         
         title = user!.name
         currentDateLabel.text = curDate()
-        addTaskButton.layer.cornerRadius = 0.5 * addTaskButton.bounds.size.width
         
         tableView.tableFooterView = UIView(frame: CGRect.zero ) // убирает разделители пока не добавили ячейку
         

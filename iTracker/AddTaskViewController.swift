@@ -17,9 +17,8 @@ class AddTaskViewController: UIViewController{
     
     @IBOutlet weak var colView: UICollectionView!
     @IBOutlet weak var tabView: UITableView!
-    @IBOutlet weak var createTaskButton: UIBarButtonItem!
     
-    @IBAction func createTaskButtonPressed(_ sender: UIButton) {
+    @IBAction func createTaskButtonPressed(_ sender: UIBarButtonItem) {
         self.view.endEditing(true)
         self.colView.isHidden = true
         if task.name.isEmpty || task.description.isEmpty {
@@ -78,8 +77,6 @@ class AddTaskViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         colView.isHidden = true
-        createTaskButton.customView?.layer.cornerRadius = 0.1 * (createTaskButton.customView?.bounds.size.width)!
-        createTaskButton.tintColor = .black
         
     }
     

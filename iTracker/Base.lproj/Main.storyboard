@@ -232,28 +232,13 @@
                         <viewLayoutGuide key="safeArea" id="udJ-wq-jNC"/>
                     </view>
                     <navigationItem key="navigationItem" title="MAIN" id="cSP-eR-gHR">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ycp-tJ-Qad">
-                            <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NC5-Xt-Hqb">
-                                <rect key="frame" x="364" y="7" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.7147966899" green="0.71510686530000001" blue="0.68960613429999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="Ew9-KM-3ms"/>
-                                    <constraint firstAttribute="height" constant="30" id="I3o-xM-82x"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="plus" catalog="system">
-                                    <color key="titleColor" red="0.98951696909999998" green="1" blue="0.068574072809999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addTaskPressed:" destination="oth-1i-N0t" eventType="touchUpInside" id="8QA-Fk-cB4"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fet-uw-rDj">
+                            <connections>
+                                <action selector="addTaskPressed:" destination="oth-1i-N0t" id="Vnf-8g-aS0"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addTaskButton" destination="NC5-Xt-Hqb" id="EPk-GY-sCc"/>
                         <outlet property="currentDateLabel" destination="4eE-AZ-e28" id="pLQ-VB-vXD"/>
                         <outlet property="tableView" destination="CgN-ne-VeF" id="ZQ3-fO-ujd"/>
                         <segue destination="xAN-TC-s4U" kind="show" identifier="toAddTaskSegue" id="GFr-La-qtn"/>
@@ -519,28 +504,14 @@
                         <viewLayoutGuide key="safeArea" id="Cyo-eR-ubY"/>
                     </view>
                     <navigationItem key="navigationItem" title="TASK" id="9xf-S5-ig6">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="hW9-Y6-Snd">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZmN-j8-6rP">
-                                <rect key="frame" x="324" y="4" width="70" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.7147966899" green="0.71510686530000001" blue="0.68960613429999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="3Qt-g0-Hnp"/>
-                                    <constraint firstAttribute="height" constant="36" id="OKv-SS-loR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Create">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="createTaskButtonPressed:" destination="xAN-TC-s4U" eventType="touchUpInside" id="tif-hO-WDf"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="FOs-Sc-fyF">
+                            <connections>
+                                <action selector="createTaskButtonPressed:" destination="xAN-TC-s4U" id="97K-mm-gdR"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="colView" destination="bom-kb-seD" id="Cex-uF-OUC"/>
-                        <outlet property="createTaskButton" destination="hW9-Y6-Snd" id="cga-dh-hig"/>
                         <outlet property="tabView" destination="fG5-mA-XTd" id="RKQ-t7-cjH"/>
                         <segue destination="5zf-MW-4Nf" kind="unwind" identifier="unwindToMainSegue" unwindAction="unwindToMainScreenWithSegue:" id="5dT-UL-bdS"/>
                     </connections>
@@ -638,7 +609,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus" catalog="system" width="64" height="56"/>
         <image name="trash.fill" catalog="system" width="60" height="64"/>
     </resources>
 </document>
