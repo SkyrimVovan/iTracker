@@ -28,9 +28,12 @@ class MainViewController: UIViewController {
     @IBAction func unwindToMainScreen(segue:UIStoryboardSegue){
         guard segue.identifier == "unwindToMainSegue" else { return }
         guard let svcAT = segue.source as? AddTaskViewController else { return }
-        svcAT.task.user = user
-        self.tasks.append(svcAT.task)
-        self.tableView.reloadData()
+        if svcAT.pressedButtonName == "Create" {
+            svcAT.task.user = user
+            self.tasks.append(svcAT.task)
+            self.tableView.reloadData()
+        }
+
     }
     
     func curDate() -> String {
@@ -52,8 +55,6 @@ class MainViewController: UIViewController {
         currentDateLabel.text = curDate()
         
         tableView.tableFooterView = UIView(frame: CGRect.zero ) // убирает разделители пока не добавили ячейку
-        
-        //self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
         
         //        var red: CGFloat = 0

@@ -504,6 +504,11 @@
                         <viewLayoutGuide key="safeArea" id="Cyo-eR-ubY"/>
                     </view>
                     <navigationItem key="navigationItem" title="TASK" id="9xf-S5-ig6">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="fs3-7Y-ymS">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="xAN-TC-s4U" id="3Ia-Jf-uEQ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Create" id="FOs-Sc-fyF">
                             <connections>
                                 <action selector="createTaskButtonPressed:" destination="xAN-TC-s4U" id="97K-mm-gdR"/>
@@ -511,7 +516,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelNavigationButton" destination="fs3-7Y-ymS" id="WPL-7V-fyy"/>
                         <outlet property="colView" destination="bom-kb-seD" id="Cex-uF-OUC"/>
+                        <outlet property="createNavigationButton" destination="FOs-Sc-fyF" id="wPB-JB-E2t"/>
                         <outlet property="tabView" destination="fG5-mA-XTd" id="RKQ-t7-cjH"/>
                         <segue destination="5zf-MW-4Nf" kind="unwind" identifier="unwindToMainSegue" unwindAction="unwindToMainScreenWithSegue:" id="5dT-UL-bdS"/>
                     </connections>

@@ -14,9 +14,13 @@ class AddTaskViewController: UIViewController{
     let imageArray:[UIImage] = [UIImage.init(systemName: "doc.fill")!,UIImage.init(systemName: "keyboard")!,UIImage.init(systemName: "book.fill")!,UIImage.init(systemName: "pencil")!,UIImage.init(systemName: "person.fill")!,UIImage.init(systemName: "zzz")!,UIImage.init(systemName: "play.fill")!,UIImage.init(systemName: "music.mic")!,UIImage.init(systemName: "heart.fill")!,UIImage.init(systemName: "camera.fill")!]
     var cellType = 0
     var task = Task()
+    var pressedButtonName = String()
     
     @IBOutlet weak var colView: UICollectionView!
     @IBOutlet weak var tabView: UITableView!
+    @IBOutlet weak var createNavigationButton: UIBarButtonItem!
+    @IBOutlet weak var cancelNavigationButton: UIBarButtonItem!
+    
     
     @IBAction func createTaskButtonPressed(_ sender: UIBarButtonItem) {
         self.view.endEditing(true)
@@ -29,6 +33,7 @@ class AddTaskViewController: UIViewController{
         } else {
             let alert = UIAlertController(title: "Are you sure to create task: \(task.name) with description: \(task.description)?", message: nil, preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { action -> Void in
+                self.pressedButtonName = sender.title!
                 self.performSegue(withIdentifier: "unwindToMainSegue", sender: nil) })
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(cancelAction)
@@ -36,6 +41,12 @@ class AddTaskViewController: UIViewController{
             present(alert, animated: true, completion: nil)
         }
     }
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        self.pressedButtonName = sender.title!
+        performSegue(withIdentifier: "unwindToMainSegue", sender: nil)
+        //print(sender.action!)
+    }
+    
     
     @IBAction func nameTextField(_ sender: UITextField) {
         task.name = sender.text!
@@ -79,8 +90,6 @@ class AddTaskViewController: UIViewController{
         colView.isHidden = true
         
     }
-    
-    
 }
 
 extension AddTaskViewController:UITableViewDelegate,UITableViewDataSource {
