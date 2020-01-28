@@ -25,13 +25,13 @@ class AddTaskViewController: UIViewController{
     @IBAction func createTaskButtonPressed(_ sender: UIBarButtonItem) {
         self.view.endEditing(true)
         self.colView.isHidden = true
-        if task.name.isEmpty || task.description.isEmpty {
+        if task.name.isEmpty || task.desc.isEmpty {
             let alert = UIAlertController(title: "Invalid task data", message: "Please enter valid task data", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Are you sure to create task: \(task.name) with description: \(task.description)?", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Are you sure to create task: \(String(describing: task.name)) with description: \(String(describing: task.desc))?", message: nil, preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { action -> Void in
                 self.pressedButtonName = sender.title!
                 self.performSegue(withIdentifier: "unwindToMainSegue", sender: nil) })
@@ -73,7 +73,7 @@ class AddTaskViewController: UIViewController{
     }
     
     @IBAction func descTextField(_ sender: UITextField) {
-        task.description = sender.text!
+        task.desc = sender.text!
     }
     @IBAction func descTextFieldEdSt(_ sender: UITextField) {
         self.colView.isHidden = true
@@ -88,6 +88,12 @@ class AddTaskViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         colView.isHidden = true
+        task.color = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        task.image = UIImage.init(systemName: "square.fill")!
+        task.time = 0
+        task.isActivated = false
+        task.name = ""
+        task.desc = ""
         
     }
 }

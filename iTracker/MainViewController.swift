@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
         guard segue.identifier == "unwindToMainSegue" else { return }
         guard let svcAT = segue.source as? AddTaskViewController else { return }
         if svcAT.pressedButtonName == "Create" {
-            svcAT.task.user = user
+            //svcAT.task.user = user
             self.tasks.append(svcAT.task)
             self.tableView.reloadData()
         }
@@ -134,7 +134,7 @@ extension MainViewController:UITableViewDelegate,UITableViewDataSource {
                                          selector: #selector(updateTimer),
                                          userInfo: nil,
                                          repeats: true)
-            timer?.tolerance = 0.1
+            //timer?.tolerance = 0.1
         }
     }
     func cancelTimer() {
@@ -144,7 +144,7 @@ extension MainViewController:UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count // +1 не надо
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -157,7 +157,10 @@ extension MainViewController:UITableViewDelegate,UITableViewDataSource {
         cell.taskName.text = tasks[indexPath.row].name
         cell.taskImage.image = tasks[indexPath.row].image
         cell.taskImage.tintColor = tasks[indexPath.row].color
-        cell.taskDescription.text = tasks[indexPath.row].description
+        cell.taskDescription.text = tasks[indexPath.row].desc
+        cell.currentTime.text = ""
+        cell.totalTime.text = ""
+
         
         if oneActive == true {
             if cell.backgroundColor == #colorLiteral(red: 0.7147966899, green: 0.7151068653, blue: 0.6896061343, alpha: 1) {
@@ -202,6 +205,26 @@ extension MainViewController:UITableViewDelegate,UITableViewDataSource {
             cell.backgroundColor = #colorLiteral(red: 0.7147966899, green: 0.7151068653, blue: 0.6896061343, alpha: 1)
         }
         tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let alert = UIAlertController(title: "Caution", message: "Are you sure to delete this activity?", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Yes", style: .default) { action -> Void in
+                self.tasks.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .middle)
+            }
+            let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        switch oneActive {
+        case true: return false
+        case false: return true
+        }
     }
 }
 

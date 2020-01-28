@@ -14,7 +14,7 @@ struct Task {
     var name = String()
     var image = UIImage.init(systemName: "square.fill")!
     var color = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    var description = String()
+    var desc = String()
     var isActivated = false
     var time = 0
 }
